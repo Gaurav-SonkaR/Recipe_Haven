@@ -1,0 +1,51 @@
+{% extends "base.html" %} 
+{% block start %}
+
+<form  method="post" enctype="multipart/form-data" class="container card mt-3 shadow-lg p-3 rounded-3">
+  {% csrf_token %}
+  <h1>Update Receipe</h1>
+  <div class="mb-3">
+    <label for="reciepe_name" class="form-label">Reciepe Name</label>
+    <input type="text" name="receipe_name" value="{{receipe.receipe_name}}" class="form-control" required />
+  </div>
+  <div class="mb-3">
+    <label for="reciepe_description" class="form-label"
+      >Reciepe Description</label
+    >
+    <textarea name="receipe_description" class="form-control" required>{{receipe.receipe_description}}</textarea>
+  </div>
+  <div class="mb-3 ">
+    <label for="reciepe_image" class="form-label" >Reciepe Image</label>
+    <input name="receipe_image" type="file"  class="form-control"/>
+  </div>
+  <div class="mb-3">
+    <label for="ingredients" class="form-label"
+      >Ingredients</label
+    >
+    <textarea
+      name="ingredients"
+      class="form-control"
+      placeholder="Write all ingredients in comma ',' separated. eg: salt,chilly"
+      required
+    >{{receipe.ingredients}}</textarea>
+  </div>
+  <div class="mb-3">
+    <label for="receipe_method" class="form-label"
+      >Recipe Method</label
+    >
+    <textarea
+      name="receipe_method"
+      class="form-control"
+      placeholder="Write each steps in comma ',' separated."
+      required
+    >{{receipe.receipe_method}}</textarea>
+  </div>
+  <button type="submit" class="btn btn-success">Update Receipe</button>
+</form>
+
+<br/>
+<br/>
+<br/>
+
+
+{% endblock %}

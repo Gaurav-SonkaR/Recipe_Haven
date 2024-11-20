@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block start %}
+
+<main>
+    <section class="pt-5 pb-5 p-3 text-center container border border-5 border-danger-subtle bg-danger-subtle rounded shadow">
+            <h2>Discover Delicious Recipes</h2>
+            <p>Explore a world of flavors and culinary delights.</p>
+            <p>Cook, Share, Inspire.</p>        
+    </section>
+
+  <section class="mt-5 pt-5 pb-5 p-3 text-center container border border-5 border-warning-subtle bg-warning-subtle rounded shadow-sm">
+    <h2>Let's build a world of deliciousness together. Share your recipe now!</h2>
+    
+    <p>Your recipe, our flavor.</p>
+  </section>
+        
+
+<section class="mt-5 p-4 container border border-5 border-info-subtle bg-info-subtle rounded shadow-sm">
+  <h2 class="text-center link-underline-primary fw-bold"><u>Delicious Recipes</u></h2>
+
+  <form>
+    <div class="m-3 p-3 ">
+      <label for="search_reciepe" class=" fs-5 mb-1 fw-bold">Search Reciepe</label>
+      <div class="input-group">
+      <input name="search_reciepe" type="text" class="form-control " />
+      <button type="submit" class="btn btn-primary input-group-text">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
+<br />
+<hr />
+<br />
+  <div class="row mt-4">
+ 
+  {% for receipe in receipes %}
+  
+    <div class="col-md-3 col-sm-6">
+      <div class="card mb-4">
+        <a href="/receipe-about/{{receipe.id}}" class="link-dark link-offset-2 link-underline-opacity-0  link-offset-3-hover">
+        <img
+          src="/media/{{receipe.receipe_image}}"
+          class="card-img-top"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{receipe.receipe_name}}</h5>
+        </div>
+        </a>
+      </div>
+    </div>
+
+     {% endfor %}
+
+  </div>
+</section>
+
+        
+    </main>
+
+    
+
+
+
+{% endblock %}
