@@ -128,8 +128,8 @@ def register_page(request):
 def receipe_about(request,id):
     queryset = Receipe.objects.get(id = id)
 
-    ingredients = queryset.ingredients.split(',')
-    receipe_method = queryset.receipe_method.split(',') 
+    ingredients = queryset.ingredients.split(',,')
+    receipe_method = queryset.receipe_method.split(',,') 
 
     context = {'receipe': queryset,
                'ingredients' : ingredients,
